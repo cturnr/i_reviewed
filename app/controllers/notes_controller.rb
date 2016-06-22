@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
-
+	before_action :set_book, only: [:create, :destroy]
+	
 def create
 	@note = @book.notes.new(note_params)
 	if @note.save
@@ -12,7 +13,7 @@ end
 def destroy
 	@note = @book.notes.find(params[:id])
 	@note.destroy
-	redirect_to @book, notice "Note deleted!"
+	redirect_to @book, notice: "Note deleted!"
 end
 
 private
