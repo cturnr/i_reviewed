@@ -5,22 +5,25 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Reviewer.destroy_all
 Book.destroy_all
 
-# Book.create! [
-# 	{ name: "Eloquent Ruby", author: "Russ Olsen" },
-# 	{ name: "Beginning Ruby", author: "Peter Cooper" },
-# 	{ name: "Metaprogramming Ruby 2", author: "Paulo Perrotta" },
-# 	{ name: "Design Patterns in Ruby", author: "Russ Olsen" },
-# 	{ name: "The Ruby Programming Language", author: "David Flanagan" }
-# ]
 
-# eloquent = Book.find_by name: "Eloquent Ruby"
-# eloquent.notes.create! [
-#   { title: "Wow", note: "Great book to learn Ruby"},
-#   { title: "Funny", note: "Doesn't put you to sleep!"}
-# ]
+Book.create! [
+	{ name: "Eloquent Ruby", author: "Russ Olsen" },
+	{ name: "Beginning Ruby", author: "Peter Cooper" },
+	{ name: "Metaprogramming Ruby 2", author: "Paulo Perrotta" },
+	{ name: "Design Patterns in Ruby", author: "Russ Olsen" },
+	{ name: "The Ruby Programming Language", author: "David Flanagan" }
+]
 
+eloquent = Book.find_by name: "Eloquent Ruby"
+eloquent.notes.create! [
+  { title: "Wow", note: "Great book to learn Ruby"},
+  { title: "Funny", note: "Doesn't put you to sleep!"}
+]
+
+100.times { |index| Book.create! name: "Book#{index}", author: "Author#{index}"}
 
 
 reviewers = Reviewer.create! [
